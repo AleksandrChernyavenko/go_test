@@ -1,0 +1,9 @@
+# yii console command
+/bin
+/pkg
+
+.git/
+
+# phpstorm project files
+.idea
+.vagrant
