@@ -3,15 +3,121 @@
 <head>
     <meta charset="utf-8">
     <title>Рисовалка 2000</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
     <link href="css/bootstrap.css" rel="stylesheet">
-  </head>
-<body>
-  <div id="wrap">
-    <div id="header-region"></div>
-    <div id="toolbar-region"></div>
-    <div id="main-region" class="container"></div>
-  </div>
-  <div id="footer-region" class="container"></div>
-  <script data-main="js/main" src="vendor/require.js"></script>
+    <script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+</head>
+<body style="width: 768px; height: 730px; margin: 0 auto">
+
+<div id="container-fluid">
+    <div id="header-region">
+        <div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Brand</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="#">Link1</a>
+                            </li>
+                            <li>
+                                <a href="#">Link2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div id="main-region">
+            <div class="row">
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5">
+
+                    <div id="toolbar-pen">
+                        - Цвет -<br>
+                        <img id="redPen" src="http://professorweb.ru/downloads/pen_red.gif" alt="Красная кисть" data-rgb="rgb(212,21,29)">
+                        <img id="greenPen" src="http://professorweb.ru/downloads/pen_green.gif" alt="Зеленая кисть" data-rgb="rgb(131,190,61)">
+                        <img id="bluePen" src="http://professorweb.ru/downloads/pen_blue.gif" alt="Синяя кисть" data-rgb="rgb(0,86,166)">
+                    </div>
+
+                    <div id="toolbar-thickness">
+                        - Толщина -<br>
+                        <img src="http://professorweb.ru/downloads/pen_thin.gif" alt="Тонкая кисть" data-thickness="1">
+                        <img src="http://professorweb.ru/downloads/pen_medium.gif" alt="Нормальная кисть" data-thickness="5">
+                        <img src="http://professorweb.ru/downloads/pen_thick.gif" alt="Толстая кисть" data-thickness="10">
+                    </div>
+
+
+                    <div class="CanvasContainer">
+                        <canvas id="drawingCanvas" class="table-bordered" width="300" height="300"></canvas>
+                    </div>
+                    <div class="Toolbar">
+                        - Операции-<br>
+                        <button onclick="saveCanvas()">Сохранить содержимое Canvas</button>
+                        <button onclick="clearCanvas()">Очистить Canvas</button>
+                        <div id="savedCopyContainer">
+                            <img id="savedImageCopy"><br>
+                            Щелкните правой кнопкой мыши для сохранения ...
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-1"></div>
+
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5"></div>
+                <div class="col-sm-1"></div>
+
+
+
+            </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div id="footer-region" class="container">
+        <div>
+            <footer class="footer">
+                <a href="https://github.com/enzolutions/marionette-skeleton-app" target="_blank"
+                   class="btn btn-primary btn-mini">Fork in github »</a>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/jquery.js" charset="UTF-8"></script>
+<script src="/js/canvas.js" charset="UTF-8"></script>
+
+<script>
+
+    $( document ).ready(function() {
+
+        console.log( "ready!" );
+
+
+
+        var canvas = new myCanvas({
+            containerSelector:'#drawingCanvas',
+            selectedClass:'#drawingCanvas',
+            toolbarPen:'#toolbar-pen',
+            toolbarThickness:'#toolbar-thickness'
+        });
+        canvas.init();
+
+    });
+
+</script>
+
+
+
 </body>
 </html>
